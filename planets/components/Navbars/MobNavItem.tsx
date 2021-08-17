@@ -15,7 +15,7 @@ export const MobNavItem:React.FC<Props> = ({color , name}) => {
                 <div className="w-5 h-5 rounded-full" style={{backgroundColor : color}}></div>
                 <h1 className="font-Spartan text-white font-semibold text-base tracking-wider uppercase">{name}</h1>
             </div>
-            <Image src={cheveron} height="12px" width="6px"/>
+            <Image src={cheveron} height="12px" width="6px" alt="chevron"/>
         </div>
         </a>
         </Link>

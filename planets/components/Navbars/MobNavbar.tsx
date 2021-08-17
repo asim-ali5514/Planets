@@ -9,7 +9,7 @@ export const MobNavbar : React.FC = () => {
     }
     return (
         <>
-            <motion.nav initial={{opacity : 0 , y : -150}} transition={spring} animate={{opacity : 1 , y: 0}}  className="w-full bg-darkBlue h-16 flex flex-row items-center justify-between p-3 border-b border-lightGrey">
+            <motion.nav initial={{opacity : 0 , y : -150}} transition={spring} animate={{opacity : 1 , y: 0}}  className="w-full bg-darkBlue h-16 flex flex-row items-center justify-between p-3 border-b border-lightGrey xs:hidden">
                 <h1 className="text-white font-Antonio text-MobHeading">THE PLANETS</h1>
                 <div className="flex flex-col gap-1" onClick={() => setShowMenu(!ShowMenu)}>
                     <div className=" bg-darkGrey w-6 h-1"></div>
