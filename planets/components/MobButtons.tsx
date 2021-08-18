@@ -14,7 +14,7 @@ export const MobButtons:React.FC<Props> = ({title, color , num}) => {
     const {Section , setSection} = useContext(InfoContext)
     return (
         <div>
-            <motion.button  transition={{ duration : 0.2 }}   animate={ Section === num ? {borderColor : color , borderBottom  : '4px solid ' + color , opacity : 1} : {borderColor : 'transparent' , borderBottom : 'none' , opacity : 1}}  onClick={() => setSection(num)}  className=" text-white border-b-4 font-bold font-Spartan  text-MobButton bg-darkBlue w-20 h-16 text-center flex justify-center items-center" >
+            <motion.button  transition={{ duration : 0.2 }}   animate={ Section === num ? {borderColor : color , borderBottom  : '4px solid ' + color , opacity : 1} : {borderColor : 'transparent' , borderBottom : 'none' , opacity : 1}}  onClick={() => setSection(num)}  className={Section === num ? "text-white border-b-4 font-bold font-Spartan  text-MobButton bg-darkBlue w-20 h-16 text-center flex justify-center items-center" : " text-lightGrey border-b-4 font-bold font-Spartan  text-MobButton bg-darkBlue w-20 h-16 text-center flex justify-center items-center"}>
                 {title}
                 </motion.button>
         </div>

@@ -3,7 +3,8 @@ import {MobButtons} from "../components/MobButtons"
 import {useState , useContext , createContext} from 'react'
 import Image from 'next/image'
 import { animate, motion , AnimatePresence } from "framer-motion"
-
+import SourceIcon from "../public/icon-source.svg"
+import {FactBox} from "./FactBox"
 interface Props {
     data: {
         name: string;
@@ -53,21 +54,50 @@ export const MainPage:React.FC<Props> = ({ data , data : {name, rotation, revolu
         data.images.internal,
         data.images.planet,
     ]
+
+    const Descriptions = [
+        data.overview.content,
+        data.structure.content,
+        data.geology.content
+    ]
+
+    const Sources = [
+        data.overview.source,
+        data.structure.source,
+        data.geology.source
+    ]
     return (
-        <div className="w-full h-screen  bg-darkBlue bg-background-stars flex flex-col items-center"  >
+        <div className="w-full h-full bg-darkBlue bg-background-stars flex flex-col items-center overflow-x-hidden"  >
             <div className="flex flex-row justify-evenly border-b border-lightGrey w-full">
                 <MobButtons color={color} title="OVERVIEW" num={0}/>
                 <MobButtons color={color} title="STRUCTURE" num={1}/>
                 <MobButtons color={color} title="SURFACE" num={2}/>
             </div>
-            <div className="grid place-items-center mt-7 ">
+            <div className="grid place-items-center mt-24 ">
                 <motion.div animate={{ opacity : 1 }} initial={{opacity : 0}} >
                 <Image src={Images[Section]} alt="planet img" width={mobdimensions} height={mobdimensions} />
                 </motion.div>
-                <motion.div className={Section === 2 ? "flex" : "hidden"} animate={Section === 2 ? {y : 0} : {y : -100}}>
-                <Image src={data.images.geology} width="163px" height="199px"/>
-                </motion.div>
+                <AnimatePresence >
+                    { Section === 2 && 
+                    <motion.div exit={{y : -800}} initial={{y : -100}}  className={Section === 2 ? "flex relative bottom-p35 " : "hidden"} animate={Section === 2 ? {y : 0} : {y : -100}}>
+                    <Image src={data.images.geology} width="163px" height="199px"/>
+                    </motion.div> }
+                </AnimatePresence>
             </div>
+            <AnimatePresence>
+            <motion.div exit={{opacity : 0}} initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.1}} animate={{ opacity : 1 , y : 0}} className="mt-16 flex flex-col justify-center items-center gap-6">
+                <h1 className="text-white font-Antonio text-4xl uppercase">{name}</h1>
+                <p className="text-white font-Spartan text-MobDesc leading-6 w-mobDesc text-center">{Descriptions[Section]}</p>
+                <p className="text-lightGrey font-Spartan text-xs">Source: <a className="underline font-bold" href={Sources[Section]}>Wikipedia</a> <Image src={SourceIcon} alt="source-icon"/> </p>
+            </motion.div>
+            </AnimatePresence>
+            <motion.div initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.2}} animate={{opacity : 1 , y : 0}} className="flex flex-col gap-3 mt-11 mb-5">
+                <FactBox title="ROTATION TIME" info={rotation} />
+                <FactBox title="REVOLUTION TIME" info={revolution} />
+                <FactBox title="RADIUS" info={radius} />
+                <FactBox title="AVERAGE TEMP." info={temperature} />
+
+            </motion.div>
         </div>
         
     )

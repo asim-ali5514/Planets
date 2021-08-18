@@ -5,6 +5,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens : {
+      'mobSmall' : '320px',
       'xs' : '680px',
       'md' : '680px',
       'lg' : '1024px'
@@ -31,12 +32,44 @@ module.exports = {
       }],
       'NavHeading' : ['1.75rem' , {
         letterSpacing : '-1.05px'
+      }],
+      'MobDesc' : ['0.68rem' , {
+        lineHeight : '22px',
+      }],
+      'MobFactBox' : ['0.6rem' , {
+        lineHeight : '16px',
+        letterSpacing : '0.73px'
       }]
     },
     height : {
-      MobNav : '65vh'
+      MobNav : '65vh',
+      MainPage : '115vh'
     },
-
+    spacing : {
+      'p5' : '5%',
+      'p10' : '10%',
+      'p15' : '15%',
+      'p20' : '20%',
+      'p25' : '25%',
+      'p30' : '30%',
+      'p35' : '35%',
+      'p40' : '40%',
+      'p45' : '45%',
+      'p50' : '50%',
+      'p55' : '55%',
+      'p60' : '60%',
+      'p65' : '65%',
+      'p70' : '70%',
+      'p75' : '75%',
+      'p80' : '80%',
+      'p85' : '85%',
+      'p90' : '90%',
+      'p95' : '95%',
+      'p100' : '100%',
+      'mobDesc' : '20.4rem',
+      'mobFactBox' : '327px',
+      'SmallMobFactBox' : '300px'
+    }
   },
   },
   variants: {
