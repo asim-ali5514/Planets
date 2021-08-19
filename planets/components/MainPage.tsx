@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { animate, motion , AnimatePresence } from "framer-motion"
 import SourceIcon from "../public/icon-source.svg"
 import {FactBox} from "./FactBox"
+import {MainButtons} from "./MainButtons"
 interface Props {
     data: {
         name: string;
@@ -67,15 +68,20 @@ export const MainPage:React.FC<Props> = ({ data , data : {name, rotation, revolu
         data.geology.source
     ]
     return (
-        <div className="w-full h-full bg-darkBlue bg-background-stars flex flex-col items-center overflow-x-hidden"  >
-            <div className="flex flex-row justify-evenly border-b border-lightGrey w-full">
+        <div className="w-full h-full bg-darkBlue bg-background-stars flex flex-col items-center overflow-x-hidden md:h-screen"  >
+            <div className="flex flex-row justify-evenly border-b border-lightGrey w-full md:hidden">
                 <MobButtons color={color} title="OVERVIEW" num={0}/>
                 <MobButtons color={color} title="STRUCTURE" num={1}/>
                 <MobButtons color={color} title="SURFACE" num={2}/>
             </div>
             <div className="grid place-items-center mt-24 ">
                 <motion.div animate={{ opacity : 1 }} initial={{opacity : 0}} >
-                <Image src={Images[Section]} alt="planet img" width={mobdimensions} height={mobdimensions} />
+                <div className="md:hidden">
+                <Image src={Images[Section]}  alt="planet img" width={mobdimensions} height={mobdimensions} />
+                </div>
+                <div className="hidden md:grid">
+                <Image className="hidden md:grid" src={Images[Section]} alt="planet img" width={tabletdimensions} height={tabletdimensions} />
+                </div>
                 </motion.div>
                 <AnimatePresence >
                     { Section === 2 && 
@@ -85,18 +91,25 @@ export const MainPage:React.FC<Props> = ({ data , data : {name, rotation, revolu
                 </AnimatePresence>
             </div>
             <AnimatePresence>
-            <motion.div exit={{opacity : 0}} initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.1}} animate={{ opacity : 1 , y : 0}} className="mt-16 flex flex-col justify-center items-center gap-6">
-                <h1 className="text-white font-Antonio text-4xl uppercase">{name}</h1>
-                <p className="text-white font-Spartan text-MobDesc leading-6 w-mobDesc text-center">{Descriptions[Section]}</p>
-                <p className="text-lightGrey font-Spartan text-xs">Source: <a className="underline font-bold" href={Sources[Section]}>Wikipedia</a> <Image src={SourceIcon} alt="source-icon"/> </p>
-            </motion.div>
+            <div className="md:flex-row border-2 border-red-800">
+                <motion.div exit={{opacity : 0}} initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.1}} animate={{ opacity : 1 , y : 0}} className="mt-16 flex flex-col justify-center items-center gap-6">
+                    <h1 className="text-white font-Antonio text-4xl uppercase">{name}</h1>
+                    <p className="text-white font-Spartan text-MobDesc leading-6 w-mobDesc text-center">{Descriptions[Section]}</p>
+                    <p className="text-lightGrey font-Spartan text-xs">Source: <a className="underline font-bold" href={Sources[Section]}>Wikipedia</a> <Image src={SourceIcon} alt="source-icon"/> </p>
+                </motion.div>
+                <motion.div initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.2}} animate={{ opacity : 1 , y : 0}}>
+                    <MainButtons  color={color} name="OVERVIEW" num={0}/>
+                    <MainButtons  color={color} name="STRUCTURE" num={1}/>
+                    <MainButtons  color={color} name="SURFACE" num={2}/>
+
+                </motion.div>
+            </div>
             </AnimatePresence>
-            <motion.div initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.2}} animate={{opacity : 1 , y : 0}} className="flex flex-col gap-3 mt-11 mb-5">
+            <motion.div initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.2}} animate={{opacity : 1 , y : 0}} className="flex flex-col gap-3 mt-11 mb-5 md:hidden">
                 <FactBox title="ROTATION TIME" info={rotation} />
                 <FactBox title="REVOLUTION TIME" info={revolution} />
                 <FactBox title="RADIUS" info={radius} />
                 <FactBox title="AVERAGE TEMP." info={temperature} />
-
             </motion.div>
         </div>
         
