@@ -43,7 +43,9 @@ module.exports = {
     },
     height : {
       MobNav : '65vh',
-      MainPage : '115vh'
+      MainPage : '115vh',
+      TabletFactBox : '88px',
+      TabletMainPage : '120vh'
     },
     spacing : {
       'p5' : '5%',
@@ -68,7 +70,8 @@ module.exports = {
       'p100' : '100%',
       'mobDesc' : '20.4rem',
       'mobFactBox' : '327px',
-      'SmallMobFactBox' : '300px'
+      'SmallMobFactBox' : '300px',
+      'TabletFactBox' : '164px'
     }
   },
   },

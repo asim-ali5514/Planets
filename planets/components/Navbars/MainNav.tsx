@@ -11,9 +11,8 @@ export const MainNav:React.FC = () => {
             <MainNavItems name="Venus"/>
             <MainNavItems name="Earth"/>
             <MainNavItems name="Mars"/>
-            <MainNavItems name="Juptier"/>
+            <MainNavItems name="Jupiter"/>
             <MainNavItems name="Saturn"/>
-            <MainNavItems name="Juptier"/>
             <MainNavItems name="Uranus"/>
             <MainNavItems name="Neptune"/>
             </div>
