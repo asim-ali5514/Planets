@@ -6,7 +6,14 @@ import { MobNavbar } from '../components/Navbars/MobNavbar'
 import { MainNav } from '../components/Navbars/MainNav'
 import {InfoContext} from "../components/MainPage"
 import {InfoProvider} from "../components/MainPage"
+import {useRouter} from 'next/router'
+import {useEffect} from 'react'
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push('/Earth')
+  } , [])
   return <>
   <Head>
   <title>Planets</title>
@@ -19,4 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   </InfoProvider>
    </>
 }
+
+
 export default MyApp

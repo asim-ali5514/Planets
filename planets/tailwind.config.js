@@ -45,7 +45,8 @@ module.exports = {
       MobNav : '65vh',
       MainPage : '115vh',
       TabletFactBox : '88px',
-      TabletMainPage : '120vh'
+      TabletMainPage : '135vh',
+      TabletInfoContainer : '40vh'
     },
     spacing : {
       'p5' : '5%',
