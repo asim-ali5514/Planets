@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/react-website-using-tailwind-cssnextjs-and-a-little-typescript-23GvqnS7q](https://your-solution-url.com)
 - Live Site URL: [planets-asim-ali5514.vercel.app](https://your-live-site-url.com)
 
 
