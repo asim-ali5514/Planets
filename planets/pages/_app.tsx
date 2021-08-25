@@ -10,10 +10,10 @@ import {useRouter} from 'next/router'
 import {useEffect} from 'react'
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-
+  router.pathname
   useEffect(() => {
     router.push('/Earth')
-  } , [])
+  }, [router])
   return <>
   <Head>
   <title>Planets</title>

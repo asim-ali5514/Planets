@@ -86,14 +86,14 @@ export const MainPage:React.FC<Props> = ({ data , data : {name, rotation, revolu
                         <Image className="hidden lg:flex" src={Images[Section]} alt="planet img" width={desktopdimensions} height={desktopdimensions} />
                     </motion.div>
                 </motion.div>
-                <AnimatePresence >
+                <AnimatePresence key="surface_img">
                     { Section === 2 && 
                     <motion.div exit={{y : -900}} initial={{y : -100}}  className={Section === 2 ? "flex relative lg:bottom-p100 bottom-p50 overflow-hidden " : "hidden"} animate={Section === 2 ? {y : 0} : {y : -100}}>
-                    <Image src={data.images.geology} width="163px" height="199px"/>
+                    <Image src={data.images.geology} width="163px" height="199px" alt="geology"/>
                     </motion.div> }
                 </AnimatePresence>
             </div>
-            <AnimatePresence>
+            <AnimatePresence key="text">
             <div className="md:flex flex-col md:flex-row md:w-p90 md:justify-between md:mt-20 overflow-y-hidden lg:flex-col lg:justify-center lg:ml-auto ">
                 <motion.div exit={{opacity : 0}} initial={{opacity : 0 , y : -100}} transition={{type : 'spring' , delay : 0.1}} animate={{ opacity : 1 , y : 0}} className="mt-16 flex flex-col justify-center items-center gap-6 md:mt-0 md:text-left md:items-baseline">
                     <h1 className="text-white font-Antonio text-4xl uppercase md:text-5xl">{name}</h1>

@@ -17,7 +17,7 @@ export const MobNavbar : React.FC = () => {
                     <div className="bg-darkGrey w-6 h-1"></div>
                 </div>
             </motion.nav>
-            <AnimatePresence>
+            <AnimatePresence key="mobNav">
                 {ShowMenu &&
             <motion.div exit={{x : 450}}  initial={{x : -450}}  animate={ ShowMenu === true ? {x : 0} : {x : -450}}   className={ShowMenu === true ? "w-full bg-darkBlue h-MobNav flex flex-col items-center transition duration-75 ease-in-out" : 'hidden transition duration-75 ease-in-out'}>
                 <div className="flex flex-col mt-3" onClick={() => setShowMenu(!ShowMenu)}>

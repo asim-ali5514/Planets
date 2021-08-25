@@ -5,7 +5,7 @@ import { MainPage } from '../components/MainPage'
 import { GetStaticProps } from 'next'
 
 
-export default function planet() {
+export default function Planet() {
     const router = useRouter()
     const filter = router.query.planet
     return (
@@ -17,9 +17,3 @@ export default function planet() {
         </div>
     )
 }
-
-// export async function getServerSidePros (context) {
-//     return {
-//         props : {}
-//     }
-// }
